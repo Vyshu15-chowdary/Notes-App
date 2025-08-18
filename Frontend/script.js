@@ -70,3 +70,14 @@ async function editNote(id,oldTitle,oldContent){
         fetchNotes();
     }
 }
+
+//delete note
+
+async function deleteNote(id){
+    if(confirm("Are you sure you want to delete this note?")){
+
+        await fetch(`${API_URL}`,{method:"DELETE"});
+
+        fetchNotes();
+    }
+}
