@@ -81,3 +81,7 @@ async function deleteNote(id){
         fetchNotes();
     }
 }
+
+
+//load notes initially
+fetchNotes();
