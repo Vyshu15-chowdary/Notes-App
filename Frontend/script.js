@@ -51,3 +51,22 @@ noteForm.addEventListener("submit",async (e)=>{
         contentInput.value ="";
         fetchNotes();
 });
+
+//edit note
+
+async function editNote(id,oldTitle,oldContent){
+
+    const newTitle = prompt("Edit title:",oldTitle);
+
+    const newContent = prompt("Edit content:",oldContent);
+
+    if(newTitle && newContent){
+        await fetch(`${API_URL}/${id}`,{
+            method:"PUT",
+            headers:{"Content-Type":"application/json"},
+            body: JSON.stringify({title:newTitle,content:newContent}),
+        });
+
+        fetchNotes();
+    }
+}
