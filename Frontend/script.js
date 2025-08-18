@@ -28,3 +28,26 @@ async function fetchNotes(){
     });
 
 }
+
+// add note
+
+noteForm.addEventListener("submit",async (e)=>{
+    e.preventDefault();
+
+    const title = titleInput.value.trim();
+     const content = contentInput.value.trim();
+
+     if(!title || !content)
+
+        return;
+
+        await fetch(API_URL,{
+            method : "POST",
+            headers : {"Content-Type":"application/json"},
+            body : JSON.stringify({title,content}),
+        });
+
+        titleInput.value = "";
+        contentInput.value ="";
+        fetchNotes();
+});
