@@ -28,7 +28,7 @@ mongoose.connect(process.env.MONGO_URI,{
 
 //Api routes
 
-//get all routes
+//get all notes
 
 app.get("/api/notes",async(req,res)=>{
     try{
@@ -36,5 +36,20 @@ app.get("/api/notes",async(req,res)=>{
         res.json(notes);
     } catch(err){
         res.status(500).json({error:"Failed to fetch notes"})
+    }
+});
+
+//create a new note
+
+app.post("/api/notes",async(req,res)=>{
+    try{
+
+        const {title,content} = req.body;
+        const newNote = new Notes({title,content})
+        await newNote.save();
+          res.status(201).json(newNote);
+    }catch(err){
+      res.status(400).json({error:"Failed to add note"})
+
     }
 });
