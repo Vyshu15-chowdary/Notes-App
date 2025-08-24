@@ -53,3 +53,19 @@ app.post("/api/notes",async(req,res)=>{
 
     }
 });
+
+//update a note
+
+app.put("/api/notes/:id",async(req,res)=>{
+try{
+        const updatedNote = await Notes.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            {new:true}
+        );
+
+        res.json(updatedNote)
+}catch(err){
+res.status(400).json({error:"Failed to update note"});
+}
+});
