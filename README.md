@@ -43,7 +43,7 @@ Notes-App/
 
  ⚡ Getting Started
 1. Clone the repository
-git clone https://github.com/your-username/notes-app.git
+git clone https://github.com/Vyshu15-chowdary/notes-app.git
 cd notes-app
 
 2. Backend Setup
