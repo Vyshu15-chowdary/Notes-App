@@ -45,7 +45,7 @@ app.post("/api/notes",async(req,res)=>{
     try{
 
         const {title,content} = req.body;
-        const newNote = new Notes({title,content})
+        const newNote = new Notes({title,content});
         await newNote.save();
           res.status(201).json(newNote);
     }catch(err){
