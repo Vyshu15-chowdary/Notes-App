@@ -84,4 +84,10 @@ app.delete("/api/notes/:id",async (req,res) =>{
     }
 });
 
+//server 
+
+app.listen(PORT,()=>{
+    console.log(`😉 server is listening now at http://localhost:${PORT}`)
+});
+
 
