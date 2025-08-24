@@ -25,3 +25,16 @@ mongoose.connect(process.env.MONGO_URI,{
 
 .then(()=> console.log("Mongodb connected"))
 .catch((err)=> console.log("❌ mongodb connection error:",err));
+
+//Api routes
+
+//get all routes
+
+app.get("/api/notes",async(req,res)=>{
+    try{
+        const notes = await Notes.find();
+        res.json(notes);
+    } catch(err){
+        res.status(500).json({error:"Failed to fetch notes"})
+    }
+});
