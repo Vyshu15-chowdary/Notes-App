@@ -69,3 +69,19 @@ try{
 res.status(400).json({error:"Failed to update note"});
 }
 });
+
+//delete a note
+
+app.delete("/api/notes/:id",async (req,res) =>{
+    try{
+
+        await Notes.findByIdAndDelete(req.params.id);
+        res.json({message:"Note deleted successfully"});
+    }
+    catch(err){
+        res.status(400).json({error:"Failed to delete a note"})
+
+    }
+});
+
+
